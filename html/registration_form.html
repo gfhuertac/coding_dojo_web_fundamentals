@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Registration form</title>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"></script>
+    <script>
+        webshims.setOptions('forms-ext', { types: 'date' });
+        webshims.polyfill('forms forms-ext');
+        $.webshims.formcfg = {
+            en: {
+                dFormat: '-',
+                dateSigns: '-',
+                patterns: {
+                    d: "yy-mm-dd"
+                }
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <form>
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <label for="first_name_input">First name:</label>
+                    </td>
+                    <td>
+                        <input type="text" id="first_name_input" name="first_name_input" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="last_name_input">Last name:</label>
+                    </td>
+                    <td>
+                        <input type="text" id="last_name_input" name="last_name_input" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="email_input">Email:</label>
+                    </td>
+                    <td>
+                        <input type="text" id="email_input" name="email_input" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="password_input">Password:</label>
+                    </td>
+                    <td>
+                        <input type="password" id="password_input" name="password_input" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="confirmation_input">Password confirmation:</label>
+                    </td>
+                    <td>
+                        <input type="password" id="confirmation_input" name="confirmation_input" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="birthdate_input">Birthdate</label>
+                    </td>
+                    <td>
+                        <input type="date" id="birthdate_input" name="birthdate_input" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="radio" id="female_radio_option" name="gender_radio" value="female" />
+                        <label for="female_radio_option">Female</label>
+                        <input type="radio" id="male_radio_option" name="gender_radio" value="male" />
+                        <label for="male_radio_option">Male</label>
+                        <input type="radio" id="other_radio_option" name="gender_radio" value="other" />
+                        <label for="other_radio_option">Other</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label for="description_input">A short description about yourself:</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <textarea id="description_input" name="description_input" rows="5" cols="40"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="language_select">Favorite language:</label>
+                    </td>
+                    <td>
+                        <select id="language_select" name="language_select">
+                            <option value="javascript">Javascript</option>
+                            <option value="java">Java</option>
+                            <option value="python">Python</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input id="submit_button" name="submit_button" type="submit" value="submit" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</body>
+
+</html>
