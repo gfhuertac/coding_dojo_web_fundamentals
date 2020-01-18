@@ -16,6 +16,17 @@ body {
 a {
     color: black;
 }
+a.button {
+    background: #165E45;
+    border: 2px solid black;
+    border-radius: 5px;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+}
 #wrapper {
     position: relative;
 }
@@ -61,6 +72,9 @@ a {
     overflow: scroll;
     height: calc(400/1140*750px - 100px) !important;
 }
+#portfolio > .card {
+    padding-bottom: 20px;
+}
 .card {
     width: calc((100vw / 3) - 25px);
     vertical-align: top;
@@ -104,6 +118,9 @@ div .card:first-child {
 }
 .card .header + div {
     text-align: left;
+}
+.card .buttons {
+    text-align: center;
 }
 #portfolio {
     padding-top: 20px;
