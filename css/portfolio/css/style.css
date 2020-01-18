@@ -1,0 +1,130 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+}
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    background: #533A44;
+    background: radial-gradient(circle, #FFFFFF 0%, #533A44 15%, #533A44 85%, #000000 100%) no-repeat fixed;
+    color: #000000;
+}
+a {
+    color: black;
+}
+#wrapper {
+    position: relative;
+}
+#header {
+    background: #F4F4F4;
+    background: linear-gradient(180deg, #F1F1F1 0%, #FFFFFF 100%);
+    height: 60px;
+    line-height: 60px;
+    padding: 5px 20px;
+    overflow: auto;
+}
+#header > .title {
+    font-size: xx-large;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    float: left;
+}
+#header > .subtitle {
+    font-size: x-large;
+    float: right;
+    vertical-align: baseline;
+}
+#content {
+    margin: 20px 20px;
+    overflow: scroll;
+}
+#photo {
+    border: 5px solid #F4F4F4;
+    display: inline-block;
+    margin-right: 10px;
+}
+#photo img {
+    width: 400px;
+    height: calc(400/1140*750px);
+}
+#about {
+    width: calc(100vw - 470px) !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    height: calc(400/1140*750px + 13px);
+    font-size: larger;
+}
+#about > .header + div {
+    overflow: scroll;
+    height: calc(400/1140*750px - 100px) !important;
+}
+.card {
+    width: calc((100vw / 3) - 25px);
+    vertical-align: top;
+    display: inline-block;
+    margin-left: 10px;
+    background: #FFFFFF;
+    background: linear-gradient(90deg, #FFFFFF 0%, #FFFFFF 50%, #FFFFFF99 100%);
+    font-family: Arial, sans-serif;
+}
+div .card:first-child {
+    margin-left: 0 !important;
+}
+.card img {
+    width: calc((100vw / 3) - 40px);
+    height: auto;
+}
+.card > div {
+    padding: 10px;
+}
+.card p {
+    padding: 10px 0;
+} 
+.card .header {
+    background: #FFFFFF;
+    background: linear-gradient(180deg, #B3B2B7 0%, #8A8E98 50%,  #B3B2B7 100%);
+    color: white;
+    font-size: x-large;
+    font-weight: bold;
+}
+.card .description {
+    min-height: 150px;
+    height: 150px;
+    max-height: 150px;
+    text-align: justify;
+    overflow: scroll;
+}
+.card .tech {
+    width: 50px;
+    height: auto;
+    padding: 10px;
+}
+.card .header + div {
+    text-align: left;
+}
+#portfolio {
+    padding-top: 20px;
+}
+#footer {
+    padding: 10px 0;
+    background: #F4F4F4;
+    background: linear-gradient(180deg, #F1F1F1 0%, #FFFFFF 100%);
+    text-align: center;
+    font-size: larger;
+}
+#footer > div {
+    padding: 10px 0;
+}
+#footer div ul li {
+    display: inline-block;
+    list-style: none;
+    font-style: italic;
+}
+#footer div ul li img {
+    width: 20px;
+    height: 20px;
+    vertical-align: text-bottom;
+}
