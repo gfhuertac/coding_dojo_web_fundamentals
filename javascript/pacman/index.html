@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pacman Demo</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+
+<body>
+    <div id="container">
+        <div id="world"></div>
+    </div>
+    <div id="score">
+        0
+    </div>
+</body>
+
+<script>
+    const BRICK = 10;
+    const PATH = 5;
+    const COIN = 4;
+    const PACMAN = 3;
+    const GHOST = 2;
+    const FRUIT = 1;
+    const EMPTY = 0;
+
+    const GAME_DONE = 'gamedone';
+    const GAME_OVER = 'gameover';
+
+    let score = 0;
+    let number_of_coins = 0;
+
+    let map = [
+        [BRICK, PATH, BRICK, BRICK, BRICK, BRICK, BRICK, BRICK, BRICK, BRICK],
+        [BRICK, COIN, COIN, COIN, COIN, COIN, GHOST, COIN, COIN, BRICK],
+        [EMPTY, COIN, COIN, BRICK, BRICK, COIN, COIN, COIN, COIN, EMPTY],
+        [EMPTY, COIN, COIN, BRICK, BRICK, PACMAN, COIN, COIN, COIN, EMPTY],
+        [BRICK, COIN, COIN, COIN, COIN, FRUIT, COIN, COIN, COIN, BRICK],
+        [BRICK, PATH, BRICK, BRICK, BRICK, BRICK, BRICK, BRICK, BRICK, BRICK],
+    ];
+
+    function drawWorld() {
+        let container = document.getElementById('container');
+        //TODO: check if exists
+        if (container.children !== undefined && container.children.length != 0) {
+            for (let element of container.children)
+                container.removeChild(element);
+        }
+        let world = document.createElement('div');
+        world.id = 'world';
+        for (let i = 0; i < map.length; ++i) {
+            let row = document.createElement('div');
+            row.className = 'row';
+            for (let j = 0; j < map[i].length; ++j) {
+                let cell = document.createElement('div');
+                if (map[i][j] == BRICK) {
+                    cell.className = 'brick';
+                } else if (map[i][j] == PACMAN) {
+                    cell.className = 'path';
+                    let pacman = document.createElement('div');
+                    pacman.id = 'pacman';
+                    pacman.style.top = (20 * i) + 'px';
+                    pacman.style.left = (20 * j) + 'px';
+                    container.appendChild(pacman);
+                } else {
+                    cell.className = 'path';
+                    if (map[i][j] == COIN) {
+                        let coin = document.createElement('div');
+                        coin.className = 'coin';
+                        cell.appendChild(coin);
+                        ++number_of_coins;
+                    } else if (map[i][j] == FRUIT) {
+                        let fruit = document.createElement('div');
+                        fruit.className = 'fruit';
+                        cell.appendChild(fruit);
+                    } else if (map[i][j] == GHOST) {
+                        let ghost = document.createElement('div');
+                        ghost.className = 'ghost';
+                        cell.appendChild(ghost);
+                    }
+                }
+                row.appendChild(cell);
+            }
+            world.appendChild(row);
+        }
+        container.appendChild(world);
+    }
+
+    function removeCoin(i, j) {
+        score += 1;
+        removeChild(i, j);
+        --number_of_coins;
+        if (number_of_coins == 0) {
+            throw new Error(GAME_DONE);
+        }
+    }
+
+    function removeFruit(i, j) {
+        score += 10;
+        removeChild(i, j);
+    }
+
+    function removeChild(i, j) {
+        let cell = document.getElementById('world').children[i].children[j];
+        cell.removeChild(cell.children[0]);
+        map[i][j] = PATH;
+    }
+
+    function handle(i, j) {
+        let what = map[i][j];
+        if (what == GHOST) throw new Error(GAME_OVER);
+        if (what == BRICK) return false;
+        if (what == COIN) removeCoin(i, j);
+        if (what == FRUIT) removeFruit(i, j);
+        document.getElementById('score').innerHTML = score;
+        return true;
+    }
+
+    function movement(keyCode, style) {
+        const step = 20;
+
+        let current = {
+            top: parseInt(style.top),
+            left: parseInt(style.left)
+        };
+        let i = current.top / step;
+        let j = current.left / step;
+
+        if (keyCode == 38) {
+            if (i == 0) {
+                if (handle(map.length - 1, j)) {
+                    style.top = ((map.length - 1) * step) + 'px';
+                    style.transform = 'rotate(-90deg)';
+                }
+            } else if (handle(i - 1, j)) {
+                style.top = (current.top - step) + 'px';
+                style.transform = 'rotate(-90deg)';
+            }
+        } else if (keyCode == 40) {
+            if (i == map.length - 1) {
+                if (handle(0, j)) {
+                    style.top = '0px';
+                    style.transform = 'rotate(90deg)';
+                }
+            } else if (handle(i + 1, j)) {
+                style.top = (current.top + step) + 'px';
+                style.transform = 'rotate(90deg)';
+            }
+        } else if (keyCode == 39) {
+            if (j == map[i].length - 1) {
+                if (handle(i, 0)) {
+                    style.left = '0px';
+                    style.transform = 'rotate(0deg)';
+                }
+            } else if (handle(i, j + 1)) {
+                style.left = (current.left + step) + 'px';
+                style.transform = 'rotate(0deg)';
+            }
+        } else if (keyCode == 37) {
+            if (j == 0) {
+                if (handle(i, map[i].length - 1)) {
+                    style.left = ((map[i].length - 1) * step) + 'px';
+                    style.transform = 'rotate(180deg)';
+                }
+            } else if (handle(i, j - 1)) {
+                style.left = (current.left - step) + 'px';
+                style.transform = 'rotate(180deg)';
+            }
+        }
+    }
+
+    drawWorld();
+
+    document.onkeydown = (event) => {
+        const keyCode = event.keyCode;
+        let element = document.getElementById('pacman');
+        let style = element.style;
+        try {
+            movement(keyCode, style);
+        } catch (error) {
+            console.log(error);
+            if (error.message == GAME_OVER) {
+                document.onkeydown = null;
+                alert('You loose :(');
+            } else if (error.message == GAME_DONE) {
+                document.onkeydown = null;
+                alert('You won!');
+            } else {
+                throw error;
+            }
+        }
+    };
+</script>
+
+</html>
