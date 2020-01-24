@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery playground</title>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <script>
+        const TOGGLEABLE_IMAGES = ['i/1.jpg', 'i/3.jpg', 'i/5.jpg'];
+        $(document).ready(function(){
+            $('img').attr('width', 200);
+            $('img').click(function(){
+                let src = $(this).attr('src');
+                if (TOGGLEABLE_IMAGES.indexOf(src) != -1)
+                    $(this).hide();
+            });
+        });
+    </script>
+</head>
+<body>
+    <img src="i/1.jpg" />
+    <img src="i/2.jpg" />
+    <img src="i/3.jpg" />
+    <img src="i/4.jpg" />
+    <img src="i/5.jpg" />
+</body>
+</html>
