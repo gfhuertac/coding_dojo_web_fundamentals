@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'
+        integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous' />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+</head>
+
+<body>
+    <div class="item">
+        <div class="row">
+            <h2>Click</h2>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                Executes a function each time the button is clicked.
+            </div>
+            <div class="col-8">
+                <textarea rows="5" cols="60">
+$(document).ready(()=>{
+    $('#click').click((event) => {
+        alert('You clicked me!!!!');
+    });
+});
+                </textarea>
+                <script>
+                    $(document).ready(()=>{
+                        $('#click').click((event) => {
+                            alert('You clicked me!!!!');
+                        });
+                    });
+                </script>
+                <button type="button" class="btn btn-primary btn-sm" id="click">Try it!</button>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="row">
+            <h2>Hide / Show</h2>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                Hide/Show an object each time the button is clicked.
+            </div>
+            <div class="col-8">
+                <textarea rows="5" cols="60">
+$(document).ready(()=>{
+    $('#hide').click((event) => {
+        $('#hide').hide();
+        $('#show').show();
+    });
+    $('#show').click((event) => {
+        $('#show').hide();
+        $('#hide').show();
+    });
+});
+                </textarea>
+                <script>
+                    $(document).ready(()=>{
+                        $('#hide').click((event) => {
+                            $('#hide').hide();
+                            $('#show').show();
+                        });
+                        $('#show').click((event) => {
+                            $('#show').hide();
+                            $('#hide').show();
+                        });
+                    });
+                </script>
+                <button type="button" class="btn btn-danger btn-sm" id="hide">Try it!</button>
+                <button type="button" class="btn btn-primary btn-sm" id="show">Show me the button!</button>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="row">
+            <h2>Toogle</h2>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                Toogle an object's display each time the button is clicked (same as before, but using toogle instead of hide/show)
+            </div>
+            <div class="col-8">
+                <textarea rows="5" cols="60">
+$(document).ready(()=>{
+    $('#hide').click((event) => {
+        $('#hide').toggle();
+        $('#show').toggle();
+    });
+    $('#show').click((event) => {
+        $('#show').toggle();
+        $('#hide').toggle();
+    });
+});
+                </textarea>
+                <script>
+                    $(document).ready(()=>{
+                        $('#hide2').click((event) => {
+                            $('#hide2').toggle();
+                            $('#show2').toggle();
+                        });
+                        $('#show2').click((event) => {
+                            $('#show2').toggle();
+                            $('#hide2').toggle();
+                        });
+                    });
+                </script>
+                <button type="button" class="btn btn-danger btn-sm" id="hide2">Try it!</button>
+                <button type="button" class="btn btn-primary btn-sm" id="show2">Show me the button!</button>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="row">
+            <h2>Slide up/down</h2>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                Hides/Shows an object using slide Up/Down an object each time the button is clicked.
+            </div>
+            <div class="col-8">
+                <textarea rows="5" cols="60">
+$(document).ready(()=>{
+    $('#hide').click((event) => {
+        $('#hide').slideUp();
+        $('#show').slideDown();
+    });
+    $('#show').click((event) => {
+        $('#show').slideUp();
+        $('#hide').slideDown();
+    });
+});
+                </textarea>
+                <script>
+                    $(document).ready(()=>{
+                        $('#hide3').click((event) => {
+                            $('#hide3').slideUp();
+                            $('#show3').slideDown();
+                        });
+                        $('#show3').click((event) => {
+                            $('#show3').slideUp();
+                            $('#hide3').slideDown();
+                        });
+                    });
+                </script>
+                <button type="button" class="btn btn-danger btn-sm" id="hide3">Try it!</button>
+                <button type="button" class="btn btn-primary btn-sm" id="show3">Show me the button!</button>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="row">
+            <h2>Slide Toogle</h2>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                Slide toogle an object's display each time the button is clicked (same as before, but using toogle instead of hide/show)
+            </div>
+            <div class="col-8">
+                <textarea rows="5" cols="60">
+$(document).ready(()=>{
+    $('#hide').click((event) => {
+        $('#hide').slideToggle();
+        $('#show').slideToggle();
+    });
+    $('#show').click((event) => {
+        $('#show').slideToggle();
+        $('#hide').slideToggle();
+    });
+});
+                </textarea>
+                <script>
+                    $(document).ready(()=>{
+                        $('#hide6').click((event) => {
+                            $('#hide6').slideToggle();
+                            $('#show6').slideToggle();
+                        });
+                        $('#show6').click((event) => {
+                            $('#show6').slideToggle();
+                            $('#hide6').slideToggle();
+                        });
+                    });
+                </script>
+                <button type="button" class="btn btn-danger btn-sm" id="hide6">Try it!</button>
+                <button type="button" class="btn btn-primary btn-sm" id="show6">Show me the button!</button>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="row">
+            <h2>Fade out/in</h2>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                Hides/Shows an object using fade out/in an object each time the button is clicked.
+            </div>
+            <div class="col-8">
+                <textarea rows="5" cols="60">
+$(document).ready(()=>{
+    $('#hide').click((event) => {
+        $('#hide').fadeOut();
+        $('#show').slideDown();
+    });
+    $('#show').click((event) => {
+        $('#show').fadeOut();
+        $('#hide').slideDown();
+    });
+});
+                </textarea>
+                <script>
+                    $(document).ready(()=>{
+                        $('#hide5').click((event) => {
+                            $('#hide5').fadeOut();
+                            $('#show5').fadeIn();
+                        });
+                        $('#show5').click((event) => {
+                            $('#show5').fadeOut();
+                            $('#hide5').fadeIn();
+                        });
+                    });
+                </script>
+                <button type="button" class="btn btn-danger btn-sm" id="hide5">Try it!</button>
+                <button type="button" class="btn btn-primary btn-sm" id="show5">Show me the button!</button>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="row">
+            <h2>Add class</h2>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                Add a class to an existing object when the button is clicked.
+            </div>
+            <div class="col-8">
+                <textarea rows="5" cols="60">
+$(document).ready(()=>{
+    $('#addclass').click((event) => {
+        $('#addclass').addClass('disabled');
+    });
+});
+                </textarea>
+                <script>
+                    $(document).ready(()=>{
+                        $('#addclass').click((event) => {
+                            $('#addclass').addClass('disabled');
+                        });
+                    });
+                </script>
+                <button type="button" class="btn btn-primary btn-sm" id="addclass">Try it!</button>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="row">
+            <h2>Before</h2>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                Adds some HTML before the button when it is clicked.
+            </div>
+            <div class="col-8">
+                <textarea rows="5" cols="60">
+$(document).ready(()=>{
+    $('#before').click((event) => {
+        $('#before').before('<span>Hello!</span>');
+    });
+});
+                </textarea>
+                <script>
+                    $(document).ready(()=>{
+                        $('#before').click((event) => {
+                            $('#before').before('<span>Hello!</span>');
+                        });
+                    });
+                </script>
+                <button type="button" class="btn btn-primary btn-sm" id="before">Try it!</button>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="row">
+            <h2>After</h2>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                Adds some HTML after the button when it is clicked.
+            </div>
+            <div class="col-8">
+                <textarea rows="5" cols="60">
+$(document).ready(()=>{
+    $('#after').click((event) => {
+        $('#after').after('<span>Hello!</span>');
+    });
+});
+                </textarea>
+                <script>
+                    $(document).ready(()=>{
+                        $('#after').click((event) => {
+                            $('#after').after('<span>Hello!</span>');
+                        });
+                    });
+                </script>
+                <button type="button" class="btn btn-primary btn-sm" id="after">Try it!</button>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="row">
+            <h2>Append</h2>
+        </div>
+        <div class="row">
+            <div class="col-4" id="append-demo">
+                Adds some HTML at the end of this description when the button is clicked.
+            </div>
+            <div class="col-8">
+                <textarea rows="5" cols="60">
+$(document).ready(()=>{
+    $('#append').click((event) => {
+        $('#append-demo').append('<span>Hello!</span>');
+    });
+});
+                </textarea>
+                <script>
+                    $(document).ready(()=>{
+                        $('#append').click((event) => {
+                            $('#append-demo').append('<span>Hello!</span>');
+                        });
+                    });
+                </script>
+                <button type="button" class="btn btn-primary btn-sm" id="append">Try it!</button>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="row">
+            <h2>Html</h2>
+        </div>
+        <div class="row">
+            <div class="col-4" id="html-demo">
+                Replace this description when the button is clicked.
+            </div>
+            <div class="col-8">
+                <textarea rows="5" cols="60">
+$(document).ready(()=>{
+    $('#html').click((event) => {
+        $('#html-demo').html('<span>Description is gone!</span>');
+    });
+});
+                </textarea>
+                <script>
+                    $(document).ready(()=>{
+                        $('#html').click((event) => {
+                            $('#html-demo').html('<span>Description is gone!</span>');
+                        });
+                    });
+                </script>
+                <button type="button" class="btn btn-primary btn-sm" id="html">Try it!</button>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="row">
+            <h2>attr/text</h2>
+        </div>
+        <div class="row">
+            <div class="col-4" id="source" alt="it is working">
+                Copy the alt attribute of this div as text to another div when the button is clicked.
+                <div id="text"></div>
+            </div>
+            <div class="col-8">
+                <textarea rows="5" cols="60">
+$(document).ready(()=>{
+    $('#attr').click((event) => {
+        $('#text').text($('#attr').attr('alt'));
+    });
+});
+                </textarea>
+                <script>
+                    $(document).ready(()=>{
+                        $('#attr').click((event) => {
+                            let t =$('#source').attr('alt');
+                            $('#text').text(t);
+                        });
+                    });
+                </script>
+                <button type="button" class="btn btn-primary btn-sm" id="attr">Try it!</button>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="row">
+            <h2>attr/val</h2>
+        </div>
+        <div class="row">
+            <div class="col-4" id="source2" alt="it is working">
+                Copy the alt attribute of this div as val to the input below when the button is clicked.
+                <input type="text" id="val" />
+            </div>
+            <div class="col-8">
+                <textarea rows="5" cols="60">
+$(document).ready(()=>{
+    $('#attr').click((event) => {
+        $('#val').val($('#source').attr('alt'));
+    });
+});
+                </textarea>
+                <script>
+                    $(document).ready(()=>{
+                        $('#attr2').click((event) => {
+                            let t = $('#source2').attr('alt');
+                            $('#val').val(t);
+                        });
+                    });
+                </script>
+                <button type="button" class="btn btn-primary btn-sm" id="attr2">Try it!</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

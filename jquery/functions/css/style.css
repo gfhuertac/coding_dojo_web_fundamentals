@@ -1,0 +1,13 @@
+.item {
+    padding: 20px;
+    border-bottom: 1px solid black;
+}
+#show, #show2, #show3, #show4, #show5, #show6 {
+    display: none;
+}
+textarea, button {
+    vertical-align: middle;
+}
+span {
+    color: red;
+}
