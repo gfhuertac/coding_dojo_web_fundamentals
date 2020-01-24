@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ninja to Cat</title>
+    <style>
+        body {
+            padding: 50px;
+        }
+    </style>
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'
+        integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous' />
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <script>
+        $(document).ready(function () {
+            $('img').click(function () {
+                let src = $(this).attr('data-alt-src');
+                $(this).attr('src', src);
+            });
+            $('#restore').click(function () {
+                let images = $('img');
+                for(let i=0; i<images.length; ++i) {
+                    let img = images[i];
+                    let src = $(img).attr('data-backup-src');
+                    $(img).attr('src', src);
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="row">
+        <img src="i/ninja0.png" data-backup-src="i/ninja0.png" data-alt-src="i/cat0.png" />
+    </div>
+    <div class="row">
+        <img src="i/ninja1.png" data-backup-src="i/ninja1.png" data-alt-src="i/cat1.png" />
+    </div>
+    <div class="row">
+        <img src="i/ninja2.png" data-backup-src="i/ninja2.png" data-alt-src="i/cat2.png" />
+    </div>
+    <div class="row">
+        <img src="i/ninja3.png" data-backup-src="i/ninja3.png" data-alt-src="i/cat3.png" />
+    </div>
+    <div class="row">
+        <img src="i/ninja4.png" data-backup-src="i/ninja4.png" data-alt-src="i/cat4.png" />
+    </div>
+    <div class="row">
+        <button class="btn btn-primary" id="restore">Restore!</button>
+    </div>
+</body>
+
+</html>
