@@ -6,13 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' rel='stylesheet'
+        integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh' crossorigin='anonymous'>
     <script src='https://code.jquery.com/jquery-3.4.1.js'
         integrity='sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=' crossorigin='anonymous'></script>
     <script>
         $(document).ready(() => {
             let container = $('#container');
             for (let i = 0; i < 150; ++i) {
-                let img = '<img src="http://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/' + i + '.png">';
+                let img = $('<img src="http://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/' + i + '.png">');
+                img.on('click', () => {
+                    $('#info').html('<img id="loading" src="i/loading.gif" />');
+                    $.get('https://pokeapi.co/api/v2/pokemon/' + i, (pokemon) => {
+                        let content = '<div class="card" style="width: 18rem;">';
+                        content += '<h5 class="card-header">' + pokemon.name + '</h5>';
+                        content += '<img class="card-img-top" src="' + pokemon.sprites.front_default + '" alt="' + pokemon.name + '">';
+                        content += '<div class="card-body">'
+                        content += '<p class="card-text">';
+                        content += 'Types: <ul>'
+                        for (let j = 0; j < pokemon.types.length; ++j) {
+                            content += '<li>' + pokemon.types[j].type.name + '</li>';
+                        }
+                        content += '</ul>';
+                        content += '<div>Height:' + pokemon.height + '</div>';
+                        content += '<div>Weight:' + pokemon.weight + '</div>';
+                        content += '</p>';
+                        content += '</div>';
+                        content += '</div>';
+                        $('#info').html(content);
+                    }, 'json').fail(() => {
+                        $('#info').html('<div class="alert alert-danger" role="alert">Could not load Pokemon´s information from the API</div>'); 
+                    });;
+                });
                 container.append(img);
             }
         });
@@ -20,7 +45,12 @@
 </head>
 
 <body>
-    <div id="container"></div>
+    <div class="row">
+        <div id="container" class="col-9"></div>
+        <div id="info" class="col-3">
+        </div>
+    </div>
+
 </body>
 
 </html>
